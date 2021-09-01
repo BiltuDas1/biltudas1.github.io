@@ -1,0 +1,15 @@
+@font-face {
+    font-family: 'alternate-regular';
+    src: url('fonts/alternate_gothic_no2_d_regular-webfont.woff2') format('woff2'),
+         url('fonts/alternate_gothic_no2_d_regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+section.a {
+  font-family: alternate-regular;
+  font-size: 26px;
+  text-align: center;
+  color: gray;
+}
+
