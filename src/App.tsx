@@ -1,8 +1,11 @@
+import { Route, Routes } from "react-router";
+import Homepage from "./pages/homepage";
+
 export function App() {
   return (
-    <main>
-      <div className="text-center">Currently Unavailable</div>
-    </main>
+    <Routes>
+      <Route path="/" element={<Homepage />} />
+    </Routes>
   );
 }
 

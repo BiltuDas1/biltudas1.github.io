@@ -27,3 +27,11 @@ dist-ssr
 
 # Temporary folder
 tmp/
+.pi/
+
+# Zip
+*.zip
+
+# Sitemap & Robots.txt
+public/sitemap.xml
+public/robots.txt
