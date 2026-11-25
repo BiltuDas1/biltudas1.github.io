@@ -3,6 +3,7 @@ import bgImg from "../assets/img/hero-img.png";
 import Hero from "../components/sections/homepage/hero";
 import SelectedProjects from "../components/sections/homepage/projects";
 import Explorations from "../components/sections/homepage/explorations";
+import Experience from "../components/sections/homepage/experience";
 
 export default function Homepage() {
   return (
@@ -20,6 +21,7 @@ export default function Homepage() {
         </div>
         <SelectedProjects />
         <Explorations />
+        <Experience />
       </main>
       <footer className="relative z-2"></footer>
     </div>
