@@ -4,8 +4,11 @@ import Hero from "../components/sections/homepage/hero";
 import SelectedProjects from "../components/sections/homepage/projects";
 import Explorations from "../components/sections/homepage/explorations";
 import Experience from "../components/sections/homepage/experience";
+import Contact from "../components/sections/homepage/contact";
 
 export default function Homepage() {
+  const year = new Date().getFullYear();
+
   return (
     <div className="w-full bg-background relative z-0">
       <div className="absolute inset-0 z-1 pointer-events-none flex flex-row justify-end">
@@ -22,8 +25,13 @@ export default function Homepage() {
         <SelectedProjects />
         <Explorations />
         <Experience />
+        <Contact />
       </main>
-      <footer className="relative z-2"></footer>
+      <footer className="w-full relative z-2 px-30 select-none">
+        <p className="font-saira font-normal text-base text-text-ternary text-center py-6">
+          {year} © Biswajit Das
+        </p>
+      </footer>
     </div>
   );
 }

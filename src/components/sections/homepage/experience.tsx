@@ -6,7 +6,7 @@ export default function Experience() {
       <h1 className="font-quicksand font-bold text-4xl text-text-primary">
         Experience
       </h1>
-      <hr className="border-text-secondary" />
+      <hr className="w-full border-text-secondary" />
       <div className="flex flex-row gap-18">
         <div className="min-w-50">
           <ul className="font-saira font-normal text-lg flex flex-col select-none text-text-secondary">
