@@ -1,6 +1,6 @@
 export default function Hero() {
   return (
-    <div className="py-24 w-190 flex flex-col gap-8">
+    <section className="py-24 w-190 h-133 flex flex-col gap-8">
       <h1 className="font-quicksand font-bold text-7xl text-text-primary">
         I build sharp tools for Linux and Android
       </h1>
@@ -9,7 +9,7 @@ export default function Hero() {
         whatever the job needs. 57 public repositories, most of them built to
         scratch an itch.
       </p>
-      <div className="font-quicksand font-bold text-lg flex flex-row gap-3">
+      <div className="font-quicksand font-bold text-lg flex flex-row gap-3 select-none">
         <button className="w-44 h-12 bg-primary-blue rounded-sm text-white">
           See the Projects
         </button>
@@ -17,6 +17,6 @@ export default function Hero() {
           Github
         </button>
       </div>
-    </div>
+    </section>
   );
 }
