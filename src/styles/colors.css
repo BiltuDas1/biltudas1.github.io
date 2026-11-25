@@ -1,8 +1,11 @@
 @theme {
   --color-text-primary: #050f1f;
   --color-text-secondary: #4d6c87;
+  --color-text-ternary: #6b7583;
   --color-background: #ffffff;
   --color-primary-blue: #033882;
   --color-secondary-light: #577a98;
   --color-accent-light: #ea7610;
+  --color-option-select: #e2e4e5;
+  --color-railing: #c5c8c5;
 }
