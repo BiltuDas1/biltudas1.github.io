@@ -4,13 +4,17 @@ type NavbarProps = {
 
 export default function Navbar({ showResume = false }: NavbarProps) {
   return (
-    <nav className="flex flex-row py-6 justify-between">
+    <nav className="flex flex-row py-6 justify-between select-none">
       <h1 className="font-quicksand font-bold text-2xl text-text-primary">
         Biswajit Das
       </h1>
       <ul className="font-saira font-normal text-lg flex flex-row text-text-secondary gap-8">
-        <li>Projects</li>
-        <li>Explorations</li>
+        <li className="line-through decoration-double opacity-50 cursor-not-allowed">
+          Projects
+        </li>
+        <li className="line-through decoration-double opacity-50 cursor-not-allowed">
+          Explorations
+        </li>
         <li>Contact</li>
       </ul>
       <p

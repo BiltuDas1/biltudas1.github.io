@@ -6,4 +6,8 @@
   body {
     @apply min-w-screen min-h-screen m-0;
   }
+
+  html {
+    @apply scrollbar-gutter-stable;
+  }
 }
