@@ -35,3 +35,7 @@ tmp/
 # Sitemap & Robots.txt
 public/sitemap.xml
 public/robots.txt
+
+# Next.js
+next-env.d.ts
+.next/

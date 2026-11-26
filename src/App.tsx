@@ -1,12 +1,10 @@
-import { Route, Routes } from "react-router";
-import Homepage from "./pages/homepage";
+import "./styles/main.css";
+import "@fontsource-variable/quicksand";
+import "@fontsource-variable/saira";
+import Homepage from "./views/homepage";
 
 export function App() {
-  return (
-    <Routes>
-      <Route path="/" element={<Homepage />} />
-    </Routes>
-  );
+  return <Homepage />;
 }
 
 export default App;

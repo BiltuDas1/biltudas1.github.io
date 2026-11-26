@@ -5,6 +5,7 @@ import SelectedProjects from "../components/sections/homepage/projects";
 import Explorations from "../components/sections/homepage/explorations";
 import Experience from "../components/sections/homepage/experience";
 import Contact from "../components/sections/homepage/contact";
+import Image from "next/image";
 
 export default function Homepage() {
   const year = new Date().getFullYear();
@@ -12,7 +13,12 @@ export default function Homepage() {
   return (
     <div className="w-full bg-background relative z-0">
       <div className="absolute inset-0 z-1 pointer-events-none flex flex-row justify-end">
-        <img src={bgImg} className="w-150 h-screen" />
+        <Image
+          src={bgImg}
+          className="w-150 h-screen"
+          alt="Background right bar image"
+          preload
+        />
       </div>
 
       <header className="relative z-2 px-30">
