@@ -1,5 +1,5 @@
 import Navbar from "../components/layout/navbar";
-import bgImg from "../assets/img/hero-img.png";
+import bgImg from "../assets/img/hero-img.webp";
 import Hero from "../components/sections/homepage/hero";
 import SelectedProjects from "../components/sections/homepage/projects";
 import Explorations from "../components/sections/homepage/explorations";
