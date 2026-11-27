@@ -1,3 +1,5 @@
+import type { Route } from "./+types/homepage";
+
 import Navbar from "../components/layout/navbar";
 import bgImg from "../assets/img/hero-img.webp";
 import Hero from "../components/sections/homepage/hero";
@@ -6,7 +8,17 @@ import Explorations from "../components/sections/homepage/explorations";
 import Experience from "../components/sections/homepage/experience";
 import Contact from "../components/sections/homepage/contact";
 
-export default function Homepage() {
+export function meta({ loaderData }: Route.MetaArgs) {
+  return [{ title: loaderData.name }, { name: "description", content: "" }];
+}
+
+export async function loader() {
+  return {
+    name: "Biswajit Das",
+  };
+}
+
+export default function Homepage({ loaderData }: Route.ComponentProps) {
   const year = new Date().getFullYear();
 
   return (
@@ -29,7 +41,7 @@ export default function Homepage() {
       </main>
       <footer className="w-full relative z-2 px-30 select-none">
         <p className="font-saira font-normal text-base text-text-ternary text-center py-6">
-          {year} © Biswajit Das
+          {year} © {loaderData.name}
         </p>
       </footer>
     </div>

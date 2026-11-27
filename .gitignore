@@ -7,7 +7,7 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
+node_modules/
 dist
 dist-ssr
 *.local
@@ -35,3 +35,17 @@ tmp/
 # Sitemap & Robots.txt
 public/sitemap.xml
 public/robots.txt
+
+# React Router
+/.react-router/
+/build/
+
+# Cloudflare
+.mf
+.wrangler
+.dev.vars*
+worker-configuration.d.ts
+*.tsbuildinfo
+
+!.dev.vars.example
+!.env.example

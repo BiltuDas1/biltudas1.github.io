@@ -4,12 +4,16 @@
   "version": "0.1.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc -b && vite build",
-    "lint": "eslint .",
-    "preview": "vite preview",
+    "build": "react-router build",
+    "dev": "react-router dev",
+    "typecheck": "wrangler types && react-router typegen && tsc -b",
+    "deploy": "pnpm run build && wrangler deploy",
+    "preview": "pnpm run build && vite preview",
+    "cf-typegen": "wrangler types",
+    "postinstall": "wrangler types",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
+    "lint": "eslint .",
     "zip": "pnpm build && cd dist/ && bestzip --level 9 ../portfolio.zip *"
   },
   "dependencies": {
@@ -17,6 +21,7 @@
     "@fontsource-variable/quicksand": "^5.3.0",
     "@fontsource-variable/saira": "^5.3.0",
     "@tailwindcss/vite": "^4.3.5",
+    "isbot": "5.1.36",
     "lucide-react": "^1.79.0",
     "react": "^19.3.1",
     "react-dom": "^19.3.1",
@@ -24,7 +29,9 @@
     "tailwindcss": "^4.3.5"
   },
   "devDependencies": {
+    "@cloudflare/vite-plugin": "1.70.2",
     "@eslint/js": "^10.0.1",
+    "@react-router/dev": "8.5.2",
     "@types/node": "^24.19.2",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
@@ -37,7 +44,8 @@
     "prettier": "^3.10.1",
     "typescript": "~6.0.3",
     "typescript-eslint": "^8.74.0",
-    "vite": "^8.3.8"
+    "vite": "^8.3.8",
+    "wrangler": "4.168.0"
   },
   "packageManager": "pnpm@12.23.0+sha512.02da94ffaf133f46074322afe552f90d40b5f71ae259aefbccdacc5085b1d617e98d65e0131f5748b9b67445978ee5055d7d59a473f1eef0d504854fefcd5975"
 }
