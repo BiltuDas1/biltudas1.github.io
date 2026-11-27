@@ -35,3 +35,11 @@ tmp/
 # Sitemap & Robots.txt
 public/sitemap.xml
 public/robots.txt
+
+# SSR
+build/
+.react-router/
+.vercel/
+
+.vercel
+.env*
