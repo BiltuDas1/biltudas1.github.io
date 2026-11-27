@@ -23,8 +23,12 @@ export default function Explorations({
         </p>
       </div>
       <div className="grid grid-cols-3 gap-x-12 gap-y-14">
-        {cards.map((card) => (
-          <ExplorationCard title={card.title} description={card.description} />
+        {cards.map((card, index) => (
+          <ExplorationCard
+            title={card.title}
+            description={card.description}
+            key={index}
+          />
         ))}
       </div>
       <div className="flex flex-row justify-center">

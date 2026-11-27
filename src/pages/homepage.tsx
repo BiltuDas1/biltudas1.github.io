@@ -1,6 +1,6 @@
 import type { Route } from "./+types/homepage";
 import { getDb } from "../lib/db.server";
-import { explorations, settings } from "../db/schema";
+import { experiences, explorations, settings } from "../db/schema";
 import Navbar from "../components/layout/navbar";
 import bgImg from "../assets/img/hero-img.webp";
 import Hero from "../components/sections/homepage/hero";
@@ -9,6 +9,8 @@ import Explorations from "../components/sections/homepage/explorations";
 import Experience from "../components/sections/homepage/experience";
 import Contact from "../components/sections/homepage/contact";
 import type { ExplorationCardType } from "../types/explorationcard";
+import type { ExperienceCardType } from "../types/experiencecard";
+import { desc } from "drizzle-orm";
 
 export function meta({ loaderData }: Route.MetaArgs) {
   const settings = loaderData.settings;
@@ -39,19 +41,31 @@ export async function loader() {
   );
 
   // Collect Explorations
-  const explorations_resp = await db
-    .select({ name: explorations.name, description: explorations.description })
-    .from(explorations);
-  const explorationsMap: ExplorationCardType[] = explorations_resp.map(
-    ({ name, description }) => ({
-      title: name,
-      description: description,
-    }),
-  );
+  const explorationsMap: ExplorationCardType[] = await db
+    .select({
+      title: explorations.name,
+      description: explorations.description,
+    })
+    .from(explorations)
+    .orderBy(desc(explorations.updatedAt), desc(explorations.id));
+
+  // Collect Experiences
+  const experiencesMap: ExperienceCardType[] = await db
+    .select({
+      company_name: experiences.company_name,
+      company_abbreviation: experiences.company_abbreviation,
+      role_name: experiences.role_name,
+      start_date: experiences.start_date,
+      end_date: experiences.end_date,
+      work_summary: experiences.work_summary,
+    })
+    .from(experiences)
+    .orderBy(desc(experiences.display_order), desc(experiences.id));
 
   return {
     settings: settingsMap,
     explorations: explorationsMap,
+    experiences: experiencesMap,
   };
 }
 
@@ -64,6 +78,7 @@ export default function Homepage({ loaderData }: Route.ComponentProps) {
   const projects_description = settings["projects_description"];
   const explorations_description = settings["explorations_description"];
   const exploration_cards = loaderData.explorations;
+  const experience_cards = loaderData.experiences;
 
   return (
     <div className="w-full bg-background relative z-0">
@@ -83,7 +98,7 @@ export default function Homepage({ loaderData }: Route.ComponentProps) {
           description={explorations_description}
           cards={exploration_cards}
         />
-        <Experience />
+        <Experience cards={experience_cards} />
         <Contact />
       </main>
       <footer className="w-full relative z-2 px-30 select-none">
