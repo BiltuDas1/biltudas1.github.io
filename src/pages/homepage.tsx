@@ -1,6 +1,6 @@
 import type { Route } from "./+types/homepage";
 import { getDb } from "../lib/db.server";
-import { settings } from "../db/schema";
+import { explorations, settings } from "../db/schema";
 import Navbar from "../components/layout/navbar";
 import bgImg from "../assets/img/hero-img.webp";
 import Hero from "../components/sections/homepage/hero";
@@ -8,6 +8,7 @@ import SelectedProjects from "../components/sections/homepage/projects";
 import Explorations from "../components/sections/homepage/explorations";
 import Experience from "../components/sections/homepage/experience";
 import Contact from "../components/sections/homepage/contact";
+import type { ExplorationCardType } from "../types/explorationcard";
 
 export function meta({ loaderData }: Route.MetaArgs) {
   const settings = loaderData.settings;
@@ -30,13 +31,27 @@ export function meta({ loaderData }: Route.MetaArgs) {
 
 export async function loader() {
   const db = await getDb();
-  const result = await db.select().from(settings);
+
+  // Collect Default Configurations
+  const settings_resp = await db.select().from(settings);
   const settingsMap = Object.fromEntries(
-    result.map(({ key, value }) => [key, value]),
+    settings_resp.map(({ key, value }) => [key, value]),
+  );
+
+  // Collect Explorations
+  const explorations_resp = await db
+    .select({ name: explorations.name, description: explorations.description })
+    .from(explorations);
+  const explorationsMap: ExplorationCardType[] = explorations_resp.map(
+    ({ name, description }) => ({
+      title: name,
+      description: description,
+    }),
   );
 
   return {
     settings: settingsMap,
+    explorations: explorationsMap,
   };
 }
 
@@ -48,6 +63,7 @@ export default function Homepage({ loaderData }: Route.ComponentProps) {
   const hero_description = settings["hero_description"];
   const projects_description = settings["projects_description"];
   const explorations_description = settings["explorations_description"];
+  const exploration_cards = loaderData.explorations;
 
   return (
     <div className="w-full bg-background relative z-0">
@@ -63,7 +79,10 @@ export default function Homepage({ loaderData }: Route.ComponentProps) {
           <Hero heading={hero_heading} description={hero_description} />
         </div>
         <SelectedProjects description={projects_description} />
-        <Explorations description={explorations_description} />
+        <Explorations
+          description={explorations_description}
+          cards={exploration_cards}
+        />
         <Experience />
         <Contact />
       </main>
