@@ -15,6 +15,20 @@
       "when": 1795787156452,
       "tag": "0001_safe_phantom_reporter",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1795790554040,
+      "tag": "0002_happy_meltdown",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1795800158564,
+      "tag": "0003_true_tyger_tiger",
+      "breakpoints": true
     }
   ]
 }

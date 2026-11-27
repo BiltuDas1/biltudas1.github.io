@@ -1,10 +1,14 @@
 import { ArrowUpRight } from "lucide-react";
-import type { ExplorationCardType } from "../../../types/explorationcard";
+
+type ExplorationCardProps = {
+  title: string;
+  description: string;
+};
 
 export default function ExplorationCard({
   title,
   description,
-}: ExplorationCardType) {
+}: ExplorationCardProps) {
   return (
     <div className="flex flex-col gap-2">
       <div className="flex flex-row items-center gap-1">
