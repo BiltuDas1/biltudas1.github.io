@@ -1,6 +1,10 @@
 import { ArrowUpRight } from "lucide-react";
 
-export default function Explorations() {
+type ExplorationsProps = {
+  description: string;
+};
+
+export default function Explorations({ description }: ExplorationsProps) {
   return (
     <section className="w-full flex flex-col gap-8">
       <div className="flex flex-col gap-4">
@@ -8,7 +12,7 @@ export default function Explorations() {
           Explorations
         </h1>
         <p className="font-saira font-normal text-base text-text-secondary">
-          Tools and experiments, mostly made because I needed them myself.
+          {description}
         </p>
       </div>
       <div className="grid grid-cols-3 gap-x-12 gap-y-14">

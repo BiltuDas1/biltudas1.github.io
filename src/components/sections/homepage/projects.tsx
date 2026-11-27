@@ -1,4 +1,10 @@
-export default function SelectedProjects() {
+type SelectedProjectsProps = {
+  description: string;
+};
+
+export default function SelectedProjects({
+  description,
+}: SelectedProjectsProps) {
   return (
     <section className="w-full flex flex-col gap-8">
       <div className="flex flex-col gap-4">
@@ -6,8 +12,7 @@ export default function SelectedProjects() {
           Selected projects
         </h1>
         <p className="font-saira font-normal text-base text-text-secondary">
-          Four of them, chosen for what they prove rather than how recent they
-          are.
+          {description}
         </p>
       </div>
       <div className="grid grid-cols-2 gap-x-8 gap-y-8">
