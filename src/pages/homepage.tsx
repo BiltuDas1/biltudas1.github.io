@@ -44,6 +44,10 @@ export default function Homepage({ loaderData }: Route.ComponentProps) {
   const year = new Date().getFullYear();
   const settings = loaderData.settings;
   const name = settings["first_name"] + " " + settings["last_name"];
+  const hero_heading = settings["hero_heading"];
+  const hero_description = settings["hero_description"];
+  const projects_description = settings["projects_description"];
+  const explorations_description = settings["explorations_description"];
 
   return (
     <div className="w-full bg-background relative z-0">
@@ -56,10 +60,10 @@ export default function Homepage({ loaderData }: Route.ComponentProps) {
       </header>
       <main className="w-full relative z-2 px-30 flex flex-col gap-10">
         <div className="max-w-full h-full mb-30">
-          <Hero />
+          <Hero heading={hero_heading} description={hero_description} />
         </div>
-        <SelectedProjects />
-        <Explorations />
+        <SelectedProjects description={projects_description} />
+        <Explorations description={explorations_description} />
         <Experience />
         <Contact />
       </main>
