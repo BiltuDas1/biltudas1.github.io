@@ -277,6 +277,9 @@ importers:
       tailwindcss:
         specifier: ^4.3.5
         version: 4.3.5
+      uuid:
+        specifier: ^14.0.3
+        version: 14.0.3
     devDependencies:
       "@eslint/js":
         specifier: ^10.0.1
@@ -6776,6 +6779,13 @@ packages:
       }
     hasBin: true
 
+  uuid@14.0.3:
+    resolution:
+      {
+        integrity: sha512-Sc5u1VVln93y1Xnz4R+CunOZc7R9LUcTmhj7Rc7Eg3HVcf7rVn2FOoa812fe0W8p3jD7xeoGSYbfqCGGH2B6xw==,
+      }
+    hasBin: true
+
   valibot@1.5.0:
     resolution:
       {
@@ -11143,6 +11153,8 @@ snapshots:
 
   uuid@14.0.1:
     optional: true
+
+  uuid@14.0.3: {}
 
   valibot@1.5.0(typescript@6.0.3):
     optionalDependencies:
